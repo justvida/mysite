@@ -1,0 +1,2 @@
+pm = input()
+print (pm)
