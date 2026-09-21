@@ -1,2 +1,0 @@
-pm = input()
-print (pm)
