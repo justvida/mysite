@@ -3,6 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 from django.http import HttpResponse, JsonResponse
 
+
 def index_view(request):
     return render(request, 'website/index.html')
 
@@ -14,3 +15,7 @@ def contact_view(request):
 
 def elements_view(request):
     return render(request, 'website/elements.html')
+
+# def test(request):
+#     context = {'post': Post}
+#     return render(request, 'test.html', context)
