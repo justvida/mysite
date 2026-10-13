@@ -101,11 +101,9 @@
 
                     <div class="col-lg-3 col-md-3 meta-details">
                         <ul class="tags">
-                            {% for cat in post.category.all %}
-                            <li><a href="#">{{ cat.name }}</a></li>
-                            {% empty %}
-                            <li>No categories</li>
-                            {% endfor %}
+                        {% for cat in post.category.all %}
+                        <a href="#">{{cat.name }}</a> {% if not forloop.last %}, {% endif %}
+                        {% endfor %}
                         </ul>
 
                         <div class="user-details row">
@@ -116,7 +114,7 @@
                             </p>
 
                             <p class="date col-lg-12 col-md-12 col-6">
-                                <a href="#">{{ post.published_date }}</a>
+                                <a href="#">{{ post.published_date|date:"d M Y"}}</a>
                                 <span class="lnr lnr-calendar-full"></span>
                             </p>
 
@@ -149,7 +147,7 @@
                         </a>
 
                         <p class="excert">
-                            {{ post.content }}
+                            {{ post.content|truncatewords:20 }}
                         </p>
 
                         <a href="{% url 'blog:single' pid=post.id %}"
